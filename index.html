@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Switcher</title>
+<style>
+    body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    flex-direction: column;
+    transition: background-color 0.5s;
+}
+
+.color-switcher {
+    text-align: center;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.color-switcher h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.color-switcher h2 {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #666;
+}
+
+.color-switcher h2 span {
+    font-size: 16px;
+    color: #333;
+}
+
+.color-switcher .button {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.color-switcher .button#grey {
+    background-color: grey;
+}
+
+.color-switcher .button#red {
+    background-color: red;
+}
+
+.color-switcher .button#blue {
+    background-color: blue;
+}
+
+.color-switcher .button#yellow {
+    background-color: yellow;
+}
+
+.color-switcher .button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+</style>
+    
+</head>
+
+<body>
+    <div class="color-switcher">
+       <h1>Color Switcher</h1>
+       
+       <span class="button" id="grey"></span>
+       <span class="button" id="red"></span>
+       <span class="button" id="blue"></span>
+       <span class="button" id="yellow"></span>
+
+       <h2> Try clicking on one of the color above
+        <span>to change the background color of this page!</span>
+       </h2>
+    </div> 
+   
+
+</body>
+
+<script>
+const buttons=document.querySelectorAll('.button');
+const body=document.querySelector('body');
+
+buttons.forEach(function(button){ // har ek button pe iterate krne ke liye forEach loop ka use kie hai
+console.log(button);
+
+ // addEventListener() ek method hai jisse hum koi event add krte hai aur usme jo bhi function hota hai use liye add krte hai
+ // syntax--- document.addEventListener('event',function())
+ // event--- some ex are click,mouseover,mouseout aur bhi bhut hote hai
+ //function-- is method ko ek function requuire hota hai event ko run krne ke liye
+ // jab bhi event hota hai to function me ek object pass kena padta hai ex.. function(e) here e is the object as the first parameter
+
+document.addEventListener('click',function(e){ // here e is the object
+    console.log(e.target) // target is the property that return an element on which the event is occured
+
+    if(e.target.id==='grey') // e.target.id return the id of eklement for ex.. here id is grey
+    {
+        body.style.backgroundColor=e.target.id; // in placwe of e.target.id we can write grey but this is not the good practice
+    }
+    if(e.target.id==='red')
+    {
+        body.style.backgroundColor=e.target.id;
+    }
+    if(e.target.id==='yellow')
+    {
+        body.style.backgroundColor=e.target.id;
+    }
+    if(e.target.id==='blue')
+    {
+        body.style.backgroundColor=e.target.id;
+    }
+});
+});
+
+
+</script>
+</html>
